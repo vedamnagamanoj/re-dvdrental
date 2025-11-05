@@ -1,0 +1,42 @@
+# Dependencies
+node_modules
+.pnpm-store
+.pnp
+.pnp.*
+
+# Next.js build output
+.next
+out
+
+# Build / Dist
+build
+dist
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Docker-related
+# (Keep Dockerfile and .dockerignore tracked)
+docker-compose*
+*.tar
+
+# Prisma
+.prisma/
+migrations/
+
+# Logs & Debug
+*.log
+pnpm-debug.log*
+yarn-debug.log*
+npm-debug.log*
+
+# Misc / Editors
+.DS_Store
+.vscode/
+.idea/
+.vercel
+*.pem
+*.tsbuildinfo
+next-env.d.ts
