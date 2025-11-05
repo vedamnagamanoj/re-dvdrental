@@ -40,3 +40,6 @@ npm-debug.log*
 *.pem
 *.tsbuildinfo
 next-env.d.ts
+
+# secrets
+secrets.yaml

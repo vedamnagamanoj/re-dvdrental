@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: re-dvdrental-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: re-dvdrental
+  template:
+    metadata:
+      labels:
+        app: re-dvdrental
+    spec:
+      containers:
+        - name: re-dvdrental
+          image: vedamnagamanoj/re-dvdrental:latest # Your Docker Hub image
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-url-secret
+                  key: DATABASE_URL
+            - name: NEXTAUTH_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: db-url-secret
+                  key: NEXTAUTH_SECRET

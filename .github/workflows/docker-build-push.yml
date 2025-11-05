@@ -35,7 +35,6 @@ jobs:
           push: true
           tags: |
             vedamnagamanoj/re-dvdrental:latest
-            vedamnagamanoj/re-dvdrental:${{ env.VERSION }}
 
       - name: Trigger Render Deployment 🚀
         run: |
