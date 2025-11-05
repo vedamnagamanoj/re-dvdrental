@@ -26,8 +26,9 @@ jobs:
         run: |
           VERSION=v1.${GITHUB_RUN_NUMBER}
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Building version: $VERSION"
 
-      - name: Build and Push
+      - name: Build and Push Docker image
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -35,3 +36,8 @@ jobs:
           tags: |
             vedamnagamanoj/re-dvdrental:latest
             vedamnagamanoj/re-dvdrental:${{ env.VERSION }}
+
+      - name: Trigger Render Deployment 🚀
+        run: |
+          echo "Triggering Render deployment..."
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
